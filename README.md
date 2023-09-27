@@ -1,8 +1,7 @@
 # BreadcrumbKey
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/breadcrumb_key`. To experiment with that code, run `bin/console` for an interactive prompt.
+BreadcrumbKey is a gem that provides a straightforward way to generate consistent and standardized breadcrumb keys for Rails applications. It's optimized for seamless integration with breadcrumb generation libraries, especially Gretel.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -16,17 +15,20 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+BreadcrumbKey works hand-in-hand with breadcrumb generation libraries, and while it's not exclusive to any particular library, it's optimized for a seamless experience with [Gretel](https://github.com/kzkn/gretel).
 
-## Development
+```erb
+<%# app/views/items/show.html.erb %>
+<% breadcrumb breadcrumb_key, @item.name, item_path(@item) %>
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+By using breadcrumb_key, you can automatically generate the appropriate breadcrumb key based on the controller and action name, reducing the potential for typos and inconsistency.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+For a controller named items and an action named show, the breadcrumb_key would return items_show, which can be directly utilized with Gretel's breadcrumb definitions.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/breadcrumb_key.
+Bug reports and pull requests are welcome on GitHub at https://github.com/yapr/breadcrumb_key.
 
 ## License
 
