@@ -1,5 +1,7 @@
-require 'breadcrumb_key/helper'
-require 'rails'
+# frozen_string_literal: true
+
+require "breadcrumb_key/helper"
+require "rails"
 
 module BreadcrumbKey
   class Railtie < Rails::Railtie
