@@ -13,7 +13,8 @@ RSpec.describe BreadcrumbKey::Helper do
 
   shared_examples "generates_correct_key" do |action, controller_path, expected_key|
     it "returns :#{expected_key} for #{controller_path}##{action} action" do
-      dummy.attributes = { controller_path: controller_path, action_name: action }
+      dummy.controller_path = controller_path
+      dummy.action_name = action
       expect(dummy.breadcrumb_key).to eq(expected_key.to_sym)
     end
   end
