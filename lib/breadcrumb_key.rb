@@ -5,10 +5,13 @@ require "breadcrumb_key/railtie" if defined?(Rails)
 
 # This module provides methods related to breadcrumb key generation.
 module BreadcrumbKey
-  mattr_accessor :auto_include_helpers
-  self.auto_include_helpers = false
+  class << self
+    attr_accessor :auto_include_helpers
 
-  def self.setup
-    yield self
+    def auto_include_helpers?
+      auto_include_helpers
+    end
   end
+
+  self.auto_include_helpers = true
 end
